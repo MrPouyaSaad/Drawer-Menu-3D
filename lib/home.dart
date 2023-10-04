@@ -135,6 +135,19 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
           ),
+          GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              if (details.delta.dx > 0) {
+                setState(() {
+                  value = 1;
+                });
+              } else {
+                setState(() {
+                  value = 0;
+                });
+              }
+            },
+          )
         ],
       ),
     );
