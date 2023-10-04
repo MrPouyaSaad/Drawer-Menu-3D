@@ -38,10 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CircleAvatar(
-                          radius: 50,
-                          child: Image.asset('images/1.jpg'),
-                        ),
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(80),
+                            child: Image.asset(
+                              'images/1.jpg',
+                              width: 96,
+                            )),
                         const SizedBox(
                           height: 10,
                         ),
@@ -52,58 +54,58 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 20.0,
                           ),
                         ),
-                        Expanded(
-                          child: ListView(
-                            children: const [
-                              ListTile(
-                                leading: Icon(
-                                  Icons.home,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  'Home',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              ListTile(
-                                leading: Icon(
-                                  Icons.person,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  'Profile',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              ListTile(
-                                leading: Icon(
-                                  Icons.settings,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  'Settings',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              ListTile(
-                                leading: Icon(
-                                  Icons.logout,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  'Log out',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      children: const [
+                        ListTile(
+                          leading: Icon(
+                            Icons.home,
+                            color: Colors.white,
+                          ),
+                          title: Text(
+                            'Home',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          leading: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          ),
+                          title: Text(
+                            'Profile',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          leading: Icon(
+                            Icons.settings,
+                            color: Colors.white,
+                          ),
+                          title: Text(
+                            'Settings',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          leading: Icon(
+                            Icons.logout,
+                            color: Colors.white,
+                          ),
+                          title: Text(
+                            'Log out',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],
@@ -116,6 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
           TweenAnimationBuilder(
             tween: Tween<double>(begin: 0, end: value),
             duration: const Duration(milliseconds: 500),
+            curve: Curves.easeIn,
             builder: (context, value, child) {
               return Transform(
                 alignment: Alignment.center,
@@ -124,12 +127,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ..setEntry(0, 3, 200 * value)
                   ..rotateY((pi / 6) * value),
                 child: Scaffold(
+                  backgroundColor: Colors.indigo,
                   appBar: AppBar(
-                    title: const Text('3D Drawer'),
+                    backgroundColor: Colors.indigo.shade800,
+                    title: const Text(
+                      '3D Drawer',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                     centerTitle: true,
                   ),
                   body: const Center(
-                    child: Text('Swipe right'),
+                    child: Text(
+                      'Swipe right 👉',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 32,
+                      ),
+                    ),
                   ),
                 ),
               );
